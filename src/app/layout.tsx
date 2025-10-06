@@ -1,17 +1,31 @@
-import { Outlet } from "react-router-dom";
 import "../styles/global.css";
-import { Header } from "@/components/common/header";
+import { Outlet } from "react-router-dom";
+import Header from "@/components/common/header";
+import { AppShell } from "@mantine/core";
+import { useHeadroom } from "@mantine/hooks";
+import Footer from "@/components/common/footer";
 
 export default function Root_Layout() {
+  const pinned = useHeadroom({ fixedAt: 120 });
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
+    <AppShell
+      header={{
+        height: { base: 120, md: 124 },
+        collapsed: !pinned,
+        offset: false,
+      }}
+      withBorder={false}
+      bg={"grape"}
+    >
+      <AppShell.Header p={0} bg={"transparent"}>
+        <Header />
+      </AppShell.Header>
 
-      <main className="flex-1 p-6">
+      <AppShell.Main mt={{ base: 120, md: 124 }} className="bg-amber-400">
         <Outlet />
-      </main>
-
-      <footer className="bg-gray-100 p-4 text-center">© 2025 My App</footer>
-    </div>
+      </AppShell.Main>
+      <Footer />
+    </AppShell>
   );
 }
