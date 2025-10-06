@@ -16,13 +16,12 @@ export default function Root_Layout() {
         offset: false,
       }}
       withBorder={false}
-      bg={"grape"}
     >
       <AppShell.Header p={0} bg={"transparent"}>
         <Header />
       </AppShell.Header>
 
-      <AppShell.Main mt={{ base: 120, md: 124 }} className="bg-amber-400">
+      <AppShell.Main mt={{ base: 120, md: 124 }}>
         <Outlet />
       </AppShell.Main>
       <Footer />
