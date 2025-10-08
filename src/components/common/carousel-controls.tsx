@@ -7,7 +7,7 @@ interface CarouselControlsProps {
   emblaRef: MutableRefObject<EmblaCarouselType | null>;
 }
 
-export function CarouselControls({ emblaRef }: CarouselControlsProps) {
+export function Carousel_Controls({ emblaRef }: CarouselControlsProps) {
   return (
     <Group mt={16}>
       <ActionIcon

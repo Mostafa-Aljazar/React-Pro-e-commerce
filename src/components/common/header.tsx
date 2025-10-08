@@ -1,26 +1,54 @@
 import { Link, useLocation } from "react-router-dom";
-import { Container, TextInput, Group, Box, ActionIcon } from "@mantine/core";
+import {
+  Container,
+  TextInput,
+  Group,
+  Box,
+  ActionIcon,
+  Flex,
+} from "@mantine/core";
 import { Heart, Search, ShoppingCart } from "lucide-react";
 import { PAGE_ROUTES } from "@/contents/routes";
 import { cn } from "@/utils/cn";
 import { PAGES_LINKS } from "@/contents";
 import Header_Drawer from "./header-drawer";
+import Language_Switcher from "./language-switcher";
 
 export default function Header() {
   const location = useLocation();
 
   return (
     <header className="bg-white border-b border-b-gray-300 w-full">
-      <Box py={10} bg="black" className="text-white text-sm text-center">
-        Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-        <Link to={PAGE_ROUTES.SHOP} className="ml-2 font-semibold underline">
-          ShopNow
-        </Link>
+      <Box className="bg-black w-full">
+        <Container size="lg">
+          <Flex
+            direction={{ base: "column", sm: "row" }}
+            align="center"
+            justify="center"
+            py={10}
+            className="relative gap-2 text-white text-sm"
+          >
+            <span className="text-xs sm:text-sm text-center">
+              Summer Sale For All Swim Suits And Free Express Delivery - OFF
+              50%!
+              <Link
+                to={PAGE_ROUTES.SHOP}
+                className="ml-2 font-semibold underline"
+              >
+                ShopNow
+              </Link>
+            </span>
+
+            <Box className="sm:top-1/2 sm:right-0 sm:absolute sm:-translate-y-1/2">
+              <Language_Switcher />
+            </Box>
+          </Flex>
+        </Container>
       </Box>
 
       <Container
         size="lg"
-        className="flex justify-between items-center py-3 md:pt-8"
+        className="flex flex-wrap justify-between items-center gap-4 py-3 md:pt-8"
       >
         <Link to={PAGE_ROUTES.HOME} className="font-bold text-2xl">
           Exclusive

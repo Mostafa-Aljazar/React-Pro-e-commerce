@@ -4,10 +4,10 @@ import {
   Image_Playstation,
   Image_Woman_Wearing_Hat,
 } from "@/assets";
-import { Section_Header } from "../common/section-header";
+import { Section_Header } from "../../common/section-header";
 import { Stack, Text, Button, Box, SimpleGrid, Image } from "@mantine/core";
 
-export default function New_Arrival() {
+export default function New_Arrival_Section() {
   return (
     <section className="mx-auto py-6 container">
       <Section_Header label="Featured" />
@@ -19,7 +19,6 @@ export default function New_Arrival() {
         spacing={20}
         cols={{ base: 1, md: 2 }}
       >
-        {/* Large Banner */}
         <Box
           h={500}
           pos={"relative"}
@@ -59,9 +58,7 @@ export default function New_Arrival() {
           </Stack>
         </Box>
 
-        {/* Right Side Grid */}
         <Stack p={0} gap={20} w={"100%"} h={500}>
-          {/* Top Right */}
           <Box
             pos={"relative"}
             h={"50%"}
@@ -107,7 +104,6 @@ export default function New_Arrival() {
             />
           </Box>
 
-          {/* Bottom Right Grid */}
           <SimpleGrid cols={2} h={"50%"} p={0} className="w-full">
             <Box
               w={"100%"}

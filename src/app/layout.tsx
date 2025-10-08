@@ -4,6 +4,7 @@ import Header from "@/components/common/header";
 import { AppShell } from "@mantine/core";
 import { useHeadroom } from "@mantine/hooks";
 import Footer from "@/components/common/footer";
+import Scroll_To_Top from "@/components/common/scroll-to-top";
 
 export default function Root_Layout() {
   const pinned = useHeadroom({ fixedAt: 120 });
@@ -23,6 +24,7 @@ export default function Root_Layout() {
 
       <AppShell.Main mt={{ base: 120, md: 124 }}>
         <Outlet />
+        <Scroll_To_Top />
       </AppShell.Main>
       <Footer />
     </AppShell>

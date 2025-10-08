@@ -1,11 +1,11 @@
-import Best_Selling_Products_Section from "@/components/best-selling-products/best-selling-products";
-import Browse_By_Category_Section from "@/components/browse-by-category/browse-by-category-section";
-import Explore_Our_Products from "@/components/explore-our-products/explore-our-products";
-import Flash_Sales_Section from "@/components/flash-sales/flash-sales-section";
-import Hero_Section from "@/components/hero/hero-section";
-import Music_Experience_Banner from "@/components/music-experience-banner/music-experience-banner";
-import New_Arrival from "@/components/new-arrival/new-arrival";
-import Services from "@/components/services/services";
+import Best_Selling_Products_Section from "@/components/home/best-selling-products/best-selling-products-section";
+import Browse_By_Category_Section from "@/components/home/browse-by-category/browse-by-category-section";
+import Explore_Our_Products_Section from "@/components/home/explore-our-products/explore-our-products-section";
+import Flash_Sales_Section from "@/components/home/flash-sales/flash-sales-section";
+import Hero_Section from "@/components/home/hero/hero-section";
+import Music_Experience_Banner_Section from "@/components/home/music-experience-banner/music-experience-banner-section";
+import New_Arrival_Section from "@/components/home/new-arrival/new-arrival-section";
+import Services_Section from "@/components/home/services/services-section";
 import { Container, Divider } from "@mantine/core";
 
 export default function Home() {
@@ -17,11 +17,10 @@ export default function Home() {
       <Browse_By_Category_Section />
       <Divider h={2} w={"100%"} className="bg-gray-50" />
       <Best_Selling_Products_Section />
-      <Divider h={2} w={"100%"} className="bg-gray-50" />
-      <Music_Experience_Banner />
-      <Explore_Our_Products />
-      <New_Arrival />
-      <Services />
+      <Music_Experience_Banner_Section />
+      <Explore_Our_Products_Section />
+      <New_Arrival_Section />
+      <Services_Section />
     </Container>
   );
 }

@@ -2,7 +2,7 @@ import { Stack, Text, Button, Box, Image, Flex } from "@mantine/core";
 import { Music_Countdown_Timer } from "./music-countdown-timer";
 import { Image_Wireless_Speaker } from "@/assets";
 
-export default function Music_Experience_Banner() {
+export default function Music_Experience_Banner_Section() {
   const flashSaleEnd = new Date();
   flashSaleEnd.setDate(flashSaleEnd.getDate() + 3);
 
@@ -16,7 +16,6 @@ export default function Music_Experience_Banner() {
           gap={32}
           p={{ base: 32, lg: 64 }}
         >
-          {/* Text Content */}
           <Stack gap="md">
             <Text size="sm" fw={600} className="!text-green-light">
               Categories
@@ -41,7 +40,6 @@ export default function Music_Experience_Banner() {
             </Button>
           </Stack>
 
-          {/* Image */}
           <Box className="block">
             <Image src={Image_Wireless_Speaker} alt="JBL Speaker" w={800} />
           </Box>

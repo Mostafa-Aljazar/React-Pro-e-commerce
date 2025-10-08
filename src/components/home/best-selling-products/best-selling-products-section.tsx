@@ -1,46 +1,7 @@
 import { Button, Group, SimpleGrid, Stack, Title } from "@mantine/core";
-import { Section_Header } from "../common/section-header";
-import { Product_Card } from "../common/product-card";
-import { Image_Item_Card } from "@/assets";
-
-const bestSellingProducts = [
-  {
-    name: "HAVIT HV-G92 Gamepad",
-    price: 120,
-    originalPrice: 160,
-    rating: 5,
-    reviews: 88,
-    discount: 40,
-    image: Image_Item_Card,
-  },
-  {
-    name: "AK-900 Wired Keyboard",
-    price: 960,
-    originalPrice: 1160,
-    rating: 4,
-    reviews: 75,
-    discount: 35,
-    image: Image_Item_Card,
-  },
-  {
-    name: "IPS LCD Gaming Monitor",
-    price: 370,
-    originalPrice: 400,
-    rating: 5,
-    reviews: 99,
-    discount: 30,
-    image: Image_Item_Card,
-  },
-  {
-    name: "S-Series Comfort Chair",
-    price: 375,
-    originalPrice: 400,
-    rating: 4,
-    reviews: 99,
-    discount: 25,
-    image: Image_Item_Card,
-  },
-];
+import { Section_Header } from "../../common/section-header";
+import { Product_Card } from "../../common/product-card";
+import { BEST_SELLING_PRODUCTS } from "@/contents";
 
 export default function Best_Selling_Products_Section() {
   const flashSaleEnd = new Date();
@@ -80,7 +41,7 @@ export default function Best_Selling_Products_Section() {
           spacing={20}
           verticalSpacing={20}
         >
-          {bestSellingProducts.map((product, i) => (
+          {BEST_SELLING_PRODUCTS.map((product, i) => (
             <Product_Card key={i} {...product} />
           ))}
         </SimpleGrid>

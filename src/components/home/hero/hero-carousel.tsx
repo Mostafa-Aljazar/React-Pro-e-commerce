@@ -1,38 +1,12 @@
-import { Image_Hero_IPhone } from "@/assets";
+import { HERO_SLIDES_DATA } from "@/contents";
 import { Carousel } from "@mantine/carousel";
 import { Box, Button, Flex, Group, Image, Stack, Text } from "@mantine/core";
 import { Apple, ArrowRight } from "lucide-react";
+import { useRef } from "react";
+import Autoplay from "embla-carousel-autoplay";
 
-const slidesData = [
-  {
-    title: "iPhone 14 Series",
-    discount: "Up to 10% off Voucher",
-    img: Image_Hero_IPhone,
-  },
-  {
-    title: "iPhone 13 Series",
-    discount: "Up to 15% off Voucher",
-    img: Image_Hero_IPhone,
-  },
-  {
-    title: "iPhone 12 Series",
-    discount: "Up to 20% off Voucher",
-    img: Image_Hero_IPhone,
-  },
-  {
-    title: "iPhone 11 Series",
-    discount: "Up to 25% off Voucher",
-    img: Image_Hero_IPhone,
-  },
-  {
-    title: "iPhone X Series",
-    discount: "Up to 30% off Voucher",
-    img: Image_Hero_IPhone,
-  },
-];
-
-export default function HeroCarousel() {
-  const slides = slidesData.map((item, index) => (
+export default function Hero_Carousel() {
+  const slides = HERO_SLIDES_DATA.map((item, index) => (
     <Carousel.Slide key={index} className="!bg-black">
       <Flex
         w={"100%"}
@@ -91,8 +65,8 @@ export default function HeroCarousel() {
         </Stack>
 
         <Box
-          w={{ base: "80%", md: "70%", lg: "60%" }}
-          pt={{ base: 20, md: 0 }}
+          w={{ base: "70%", md: "60%", lg: "60%" }}
+          pt={{ base: 50, md: 0 }}
           className="flex justify-center items-center !bg-black"
         >
           <Image src={item.img} alt={item.title} />
@@ -101,8 +75,10 @@ export default function HeroCarousel() {
     </Carousel.Slide>
   ));
 
+  const autoplay = useRef(Autoplay({ delay: 5000 }));
+
   return (
-    <div className="bg-black w-full h-full">
+    <Box w={"100%"} h={"100%"} className="bg-black">
       <Carousel
         flex={1}
         slideSize="100%"
@@ -110,18 +86,21 @@ export default function HeroCarousel() {
         withControls={false}
         withIndicators
         controlSize={36}
-        className="h-[400px]"
+        className="h-[340px]"
         emblaOptions={{
           loop: true,
           align: "center",
           slidesToScroll: 1,
         }}
         classNames={{
-          indicator: "bg-gray-400 !w-3 !h-3 !rounded-full mx-1",
+          indicator: "!bg-gray-400 !w-3 !h-3 !rounded-full mx-1",
         }}
+        plugins={[autoplay.current]}
+        onMouseEnter={autoplay.current.stop}
+        onMouseLeave={() => autoplay.current.play()}
       >
         {slides}
       </Carousel>
-    </div>
+    </Box>
   );
 }

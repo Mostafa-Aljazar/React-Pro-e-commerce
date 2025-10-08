@@ -1,9 +1,10 @@
 import { Carousel } from "@mantine/carousel";
 import { Box } from "@mantine/core";
-import { type MutableRefObject, type ReactNode } from "react";
+import { useRef, type MutableRefObject, type ReactNode } from "react";
 import type { EmblaCarouselType } from "embla-carousel";
+import Autoplay from "embla-carousel-autoplay";
 
-interface Swiper_Section_Props<T> {
+interface Carousel_Section_Props<T> {
   emblaRef: MutableRefObject<EmblaCarouselType | null>;
   slides: T[];
   renderItem: (item: T, index: number) => ReactNode;
@@ -11,13 +12,15 @@ interface Swiper_Section_Props<T> {
   slideGap?: { base: number; md?: number; lg?: number };
 }
 
-export function Swiper_Section<T>({
+export function Carousel_Section<T>({
   emblaRef,
   slides,
   renderItem,
   slideSize = { base: "45%", md: "30%", lg: "23%" },
   slideGap = { base: 10, md: 15, lg: 20 },
-}: Swiper_Section_Props<T>) {
+}: Carousel_Section_Props<T>) {
+  const autoplay = useRef(Autoplay({ delay: 5000 }));
+
   return (
     <Box pos="relative" w="100%" mb={48}>
       <Carousel
@@ -26,6 +29,9 @@ export function Swiper_Section<T>({
         slideSize={slideSize}
         slideGap={slideGap}
         emblaOptions={{ align: "start", slidesToScroll: 1, loop: true }}
+        plugins={[autoplay.current]}
+        onMouseEnter={autoplay.current.stop}
+        onMouseLeave={() => autoplay.current.play()}
       >
         {slides.map(renderItem)}
       </Carousel>
