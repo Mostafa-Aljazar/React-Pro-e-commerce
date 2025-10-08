@@ -5,12 +5,31 @@ import {
   Image_Woman_Wearing_Hat,
 } from "@/assets";
 import { Section_Header } from "../../common/section-header";
-import { Stack, Text, Button, Box, SimpleGrid, Image } from "@mantine/core";
+import {
+  Stack,
+  Text,
+  Button,
+  Box,
+  SimpleGrid,
+  Image,
+  Title,
+} from "@mantine/core";
 
 export default function New_Arrival_Section() {
   return (
-    <section className="mx-auto py-6 container">
-      <Section_Header label="Featured" />
+    <section className="mx-auto mb-2 md:mb-5 py-10 md:py-16 container">
+      <Stack gap={10} mb={20}>
+        <Section_Header label="Featured" />
+
+        <Title
+          order={2}
+          fz={{ base: 20, sm: 28, md: 32 }}
+          fw={700}
+          textWrap="nowrap"
+        >
+          New Arrival
+        </Title>
+      </Stack>
 
       <SimpleGrid
         mt={30}

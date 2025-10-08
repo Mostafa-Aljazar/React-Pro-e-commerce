@@ -8,8 +8,8 @@ export default function Best_Selling_Products_Section() {
   flashSaleEnd.setDate(flashSaleEnd.getDate() + 3);
 
   return (
-    <section className="mx-auto py-6 container">
-      <Stack gap={0}>
+    <section className="mx-auto mb-2 md:mb-5 py-10 md:py-16 container">
+      <Stack gap={20}>
         <Stack gap={10} mb={20}>
           <Section_Header label="This Month" />
 
@@ -25,10 +25,11 @@ export default function Best_Selling_Products_Section() {
 
             <Button
               size={"sm"}
+              w={{ base: 100, md: 160 }}
+              h={{ base: 35, md: 56 }}
               radius={"xs"}
               fw={500}
               fz={"sm"}
-              px={{ base: 20, md: 35 }}
               className="!bg-red-dark"
             >
               View All
@@ -38,7 +39,7 @@ export default function Best_Selling_Products_Section() {
 
         <SimpleGrid
           cols={{ base: 2, md: 2, lg: 4 }}
-          spacing={20}
+          spacing={30}
           verticalSpacing={20}
         >
           {BEST_SELLING_PRODUCTS.map((product, i) => (

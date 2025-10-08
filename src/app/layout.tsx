@@ -12,7 +12,7 @@ export default function Root_Layout() {
   return (
     <AppShell
       header={{
-        height: { base: 120, md: 124 },
+        height: { base: 150, md: 124 },
         collapsed: !pinned,
         offset: false,
       }}
@@ -22,7 +22,7 @@ export default function Root_Layout() {
         <Header />
       </AppShell.Header>
 
-      <AppShell.Main mt={{ base: 120, md: 124 }}>
+      <AppShell.Main mt={{ base: 150, md: 124 }}>
         <Outlet />
         <Scroll_To_Top />
       </AppShell.Main>

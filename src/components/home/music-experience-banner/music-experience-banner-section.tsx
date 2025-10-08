@@ -22,7 +22,7 @@ export default function Music_Experience_Banner_Section() {
             </Text>
             <Text
               fz={{ base: 25, md: 35, lg: 50 }}
-              lh={1}
+              lh={1.2}
               className="font-bold leading-tight"
             >
               Enhance Your Music Experience
@@ -33,7 +33,8 @@ export default function Music_Experience_Banner_Section() {
               size="md"
               fw={500}
               fz={"sm"}
-              w={150}
+              h={{ base: 50, md: 56 }}
+              w={{ base: 120, md: 170 }}
               className="!bg-green-light hover:!bg-green-600 mt-4 transition-colors"
             >
               Buy Now!

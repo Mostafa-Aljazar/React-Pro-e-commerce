@@ -16,7 +16,7 @@ export default function Flash_Sales_Section() {
   const productEmblaRef = useRef<EmblaCarouselType | null>(null);
 
   return (
-    <section className="mx-auto py-6 container">
+    <section className="mx-auto py-10 md:py-16 container">
       <Stack gap={20} className="w-full">
         <Stack gap={10}>
           <Section_Header label="Today's" />
@@ -55,10 +55,14 @@ export default function Flash_Sales_Section() {
 
         <Button
           radius={"xs"}
-          px={48}
           c={"white"}
           mx={"auto"}
+          fw={500}
+          fz={16}
+          h={{ base: 50, md: 56 }}
+          w={{ base: 200, md: 230 }}
           className="!bg-red-dark"
+          mt={{ base: 10, md: 20 }}
         >
           View All Products
         </Button>

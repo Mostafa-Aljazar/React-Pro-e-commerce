@@ -14,8 +14,8 @@ export default function Browse_By_Category_Section() {
   const categoryEmblaRef = useRef<EmblaCarouselType | null>(null);
 
   return (
-    <section className="mx-auto py-6 container">
-      <Stack gap={0}>
+    <section className="mx-auto py-10 md:py-16 container">
+      <Stack gap={20}>
         <Stack gap={10} mb={20}>
           <Section_Header label="Categories" />
           <Group justify="space-between" flex={1} w={"100%"}>

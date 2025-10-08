@@ -15,11 +15,11 @@ export default function Explore_Our_Products_Section() {
 
   const exploreOurProductsEmblaRef = useRef<EmblaCarouselType | null>(null);
 
-  const slides = chunkArray(EXPLORE_OUR_PRODUCTS_DATA, 12);
+  const slides = chunkArray(EXPLORE_OUR_PRODUCTS_DATA, 8);
 
   return (
-    <section className="mx-auto py-6 container">
-      <Stack gap={0}>
+    <section className="mx-auto mb-0 md:mb-5 md:py-16 pt-10 pb-5 container">
+      <Stack gap={20}>
         <Stack gap={10} mb={20}>
           <Section_Header label="Our Products" />
           <Group justify="space-between" flex={1} w={"100%"}>
@@ -29,7 +29,7 @@ export default function Explore_Our_Products_Section() {
               fw={700}
               textWrap="nowrap"
             >
-              Browse By Category
+              Explore Our Products
             </Title>
             <Carousel_Controls emblaRef={exploreOurProductsEmblaRef} />
           </Group>
@@ -43,7 +43,7 @@ export default function Explore_Our_Products_Section() {
           renderItem={(productsChunk, i) => (
             <Carousel.Slide key={i}>
               <SimpleGrid
-                cols={{ base: 2, sm: 3, lg: 4 }}
+                cols={{ base: 2, sm: 2, lg: 4 }}
                 spacing={20}
                 verticalSpacing={20}
               >
@@ -56,12 +56,15 @@ export default function Explore_Our_Products_Section() {
         />
 
         <Button
-          mt={{ base: 20, md: 30, lg: 40 }}
           radius={"xs"}
-          px={48}
           c={"white"}
           mx={"auto"}
+          fw={500}
+          fz={16}
+          h={{ base: 50, md: 56 }}
+          w={{ base: 200, md: 230 }}
           className="!bg-red-dark"
+          mt={{ base: 0, md: 20 }}
         >
           View All Products
         </Button>

@@ -1,5 +1,5 @@
-import { ActionIcon, Drawer, Group, Text } from "@mantine/core";
-import { Menu } from "lucide-react";
+import { ActionIcon, Box, Drawer, Group, Title } from "@mantine/core";
+import { CircleChevronRight } from "lucide-react";
 import { useState } from "react";
 import Category_List from "./category-list";
 
@@ -9,19 +9,45 @@ export default function Category_Section() {
   return (
     <>
       <Group
-        onClick={() => setOpened(true)}
+        onClick={() => setOpened((o) => !o)}
         justify="space-between"
         align="center"
         hiddenFrom="md"
-        mb={16}
+        className="cursor-pointer select-none"
       >
-        <Text fw={600} fz={16}>
-          Show Categories
-        </Text>
-        <ActionIcon variant="transparent" size="sm" bg={"transparent"}>
-          <Menu className="w-5 h-5 font-semibold text-black" />
+        <Group gap={8}>
+          <Box
+            w={{ base: 15, md: 20 }}
+            h={{ base: 30, md: 40 }}
+            style={{ borderRadius: 4 }}
+            className="!bg-red-dark"
+          />
+          <Title
+            order={2}
+            fz={{ base: 20, sm: 28, md: 32 }}
+            fw={700}
+            textWrap="nowrap"
+          >
+            Categories
+          </Title>
+        </Group>
+
+        <ActionIcon
+          size={"sm"}
+          p={5}
+          w={35}
+          h={35}
+          radius={100}
+          className="!bg-gray-100"
+        >
+          <CircleChevronRight
+            className={`w-5 h-5 !text-red-dark font-semibold   transform transition-transform duration-300 ease-in-out ${
+              opened ? "rotate-180" : "rotate-0"
+            }`}
+          />
         </ActionIcon>
       </Group>
+
       <Drawer
         opened={opened}
         onClose={() => setOpened(false)}

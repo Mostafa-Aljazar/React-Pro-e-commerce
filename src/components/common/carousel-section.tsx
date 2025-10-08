@@ -22,7 +22,7 @@ export function Carousel_Section<T>({
   const autoplay = useRef(Autoplay({ delay: 5000 }));
 
   return (
-    <Box pos="relative" w="100%" mb={48}>
+    <Box pos="relative" w="100%">
       <Carousel
         withControls={false}
         getEmblaApi={(embla) => (emblaRef.current = embla)}

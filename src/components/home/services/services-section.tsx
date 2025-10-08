@@ -16,6 +16,7 @@ export default function Services_Section() {
               bg={"gray.5"}
               w={{ base: 60, md: 70 }}
               h={{ base: 60, md: 70 }}
+              mb={20}
               className="rounded-full"
             >
               <Center
