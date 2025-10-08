@@ -7,6 +7,7 @@ import {
 } from "@mantine/core";
 import type { ReactNode } from "react";
 import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 
 const primary: MantineColorsTuple = [
   "#fafafa",

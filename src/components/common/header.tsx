@@ -1,44 +1,25 @@
-import { Heart, Search, ShoppingCart } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Container, TextInput, Group, Box, ActionIcon } from "@mantine/core";
+import { Heart, Search, ShoppingCart } from "lucide-react";
 import { PAGE_ROUTES } from "@/contents/routes";
 import { cn } from "@/utils/cn";
+import { PAGES_LINKS } from "@/contents";
+import Header_Drawer from "./header-drawer";
 
 export default function Header() {
-  const links = [
-    {
-      label: "Home",
-      link: PAGE_ROUTES.HOME,
-    },
-    {
-      label: "Contact",
-      link: PAGE_ROUTES.CONTACT,
-    },
-    {
-      label: "About",
-      link: PAGE_ROUTES.ABOUT,
-    },
-    {
-      label: "Sign Up",
-      link: PAGE_ROUTES.SIGN_UP,
-    },
-  ];
   const location = useLocation();
 
   return (
-    <header className="bg-white border-b-1 border-b-gray-300 w-full">
-      <Box py={12} bg="black" className="text-white">
-        <Container className="text-sm text-center">
-          Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-          <Link to={PAGE_ROUTES.SHOP} className="ml-2 font-semibold underline">
-            ShopNow
-          </Link>
-        </Container>
+    <header className="bg-white border-b border-b-gray-300 w-full">
+      <Box py={10} bg="black" className="text-white text-sm text-center">
+        Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        <Link to={PAGE_ROUTES.SHOP} className="ml-2 font-semibold underline">
+          ShopNow
+        </Link>
       </Box>
 
       <Container
         size="lg"
-        flex={1}
         className="flex justify-between items-center py-3 md:pt-8"
       >
         <Link to={PAGE_ROUTES.HOME} className="font-bold text-2xl">
@@ -46,7 +27,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
-          {links.map((item) => (
+          {PAGES_LINKS.map((item) => (
             <Link
               key={item.link}
               to={item.link}
@@ -72,12 +53,16 @@ export default function Header() {
               input: "placeholder:!font-light !outline-none !border-none",
             }}
           />
+
           <ActionIcon variant="transparent">
             <Heart size={24} strokeWidth={1.5} className="text-black" />
           </ActionIcon>
+
           <ActionIcon variant="transparent">
             <ShoppingCart size={24} strokeWidth={1.5} className="text-black" />
           </ActionIcon>
+
+          <Header_Drawer />
         </Group>
       </Container>
     </header>

@@ -1,3 +1,4 @@
+import { cn } from "@/utils/cn";
 import {
   Card,
   Image,
@@ -11,7 +12,7 @@ import {
 } from "@mantine/core";
 import { Eye, Heart } from "lucide-react";
 
-interface ProductCardProps {
+export interface ProductCardProps {
   name: string;
   price: number;
   originalPrice?: number;
@@ -20,6 +21,7 @@ interface ProductCardProps {
   image: string;
   discount?: number;
   isNew?: boolean;
+  colors?: { color: string; active?: boolean }[];
 }
 
 export function Product_Card({
@@ -31,6 +33,7 @@ export function Product_Card({
   image,
   discount,
   isNew,
+  colors,
 }: ProductCardProps) {
   return (
     <Card
@@ -42,7 +45,7 @@ export function Product_Card({
     >
       <Box pos="relative" mb={0} className="!bg-gray-100">
         <Image
-          src={image || "/placeholder.svg"}
+          src={image}
           alt={name}
           fit="contain"
           className="p-10 aspect-square group-hover:scale-105 transition-transform"
@@ -52,12 +55,22 @@ export function Product_Card({
         {(discount || isNew) && (
           <Group gap="xs" pos="absolute" top={8} left={8}>
             {discount && (
-              <Badge bg={"red"} c={"white"} size="lg" radius={"xs"}>
+              <Badge
+                c={"white"}
+                size="lg"
+                radius={"xs"}
+                className="!bg-red-dark"
+              >
                 -{discount}%
               </Badge>
             )}
             {isNew && (
-              <Badge color="green" size="lg">
+              <Badge
+                size="lg"
+                radius={"xs"}
+                c={"white"}
+                className="!bg-green-light"
+              >
                 NEW
               </Badge>
             )}
@@ -102,16 +115,20 @@ export function Product_Card({
 
       {/* Product info */}
       <Stack gap={4} p={"md"}>
-        <Text fw={600} fz="sm">
+        <Text
+          fw={{ base: 600, md: 700 }}
+          lh={1.2}
+          fz={{ base: "sm", md: "md" }}
+        >
           {name}
         </Text>
 
         <Group gap="xs">
-          <Text fw={600} c="red">
+          <Text fw={600} c="red" fz={{ base: "sm", md: "md" }}>
             ${price}
           </Text>
           {originalPrice && (
-            <Text td="line-through" c="dimmed">
+            <Text td="line-through" c="dimmed" fz={{ base: "sm", md: "md" }}>
               ${originalPrice}
             </Text>
           )}
@@ -129,6 +146,23 @@ export function Product_Card({
             ({reviews})
           </Text>
         </Group>
+
+        {colors && (
+          <Group gap={5}>
+            {colors.map((item, i) => (
+              <Box
+                key={i}
+                h={20}
+                w={20}
+                bg={item.color}
+                className={cn(
+                  "rounded-full",
+                  item.active && "border-2 border-gray-800"
+                )}
+              />
+            ))}
+          </Group>
+        )}
       </Stack>
     </Card>
   );

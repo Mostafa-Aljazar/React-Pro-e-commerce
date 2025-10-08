@@ -1,12 +1,12 @@
 import Providers from "@/providers/providers";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import ROUTES from ".";
+import App from "./app";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Providers>
-      <ROUTES />
+      <App />
     </Providers>
   </StrictMode>
 );

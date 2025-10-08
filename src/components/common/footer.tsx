@@ -1,4 +1,5 @@
-import { App_Store, Google_Play, Qr_Code } from "@/assets";
+import { Image_App_Store, Image_Google_Play, Image_Qr_Code } from "@/assets";
+import { FOOTER_MY_ACCOUNT, FOOTER_QUICK_LINKS } from "@/contents";
 import {
   Container,
   Grid,
@@ -13,25 +14,10 @@ import {
 } from "@mantine/core";
 import { SendHorizonal } from "lucide-react";
 
-const myAccount = [
-  "My Account",
-  "Login / Register",
-  "Cart",
-  "Wishlist",
-  "Shop",
-] as const;
-
-const quick_Link = [
-  "Privacy Policy",
-  "Terms Of Use",
-  "FAQ",
-  "Contact",
-] as const;
-
 export default function Footer() {
   return (
     <Box bg="black" c="white" pt={{ base: 20, sm: 40, lg: 80 }} pb={24}>
-      <Container size={"xl"} px={40}>
+      <Container size={"lg"} px={40}>
         <Grid justify="space-between" p={0} m={0}>
           <Grid.Col span={{ base: 12, md: 6, lg: 2 }}>
             <Stack gap={10}>
@@ -80,7 +66,7 @@ export default function Footer() {
           <Grid.Col span={{ base: 12, md: 6, lg: 2 }}>
             <Stack gap={10}>
               <Text fz={20}>Account</Text>
-              {myAccount.map((item) => (
+              {FOOTER_MY_ACCOUNT.map((item) => (
                 <Anchor
                   key={item}
                   c="gray.5"
@@ -98,7 +84,7 @@ export default function Footer() {
             <Stack gap={10}>
               <Text fz={20}>Quick Link</Text>
 
-              {quick_Link.map((item) => (
+              {FOOTER_QUICK_LINKS.map((item) => (
                 <Anchor
                   key={item}
                   c="gray.5"
@@ -120,7 +106,7 @@ export default function Footer() {
               </Text>
               <Group wrap="nowrap" gap={10}>
                 <Image
-                  src={Qr_Code}
+                  src={Image_Qr_Code}
                   alt="QR Code"
                   h={80}
                   w={80}
@@ -129,7 +115,7 @@ export default function Footer() {
                 />
                 <Stack gap={10}>
                   <Image
-                    src={App_Store}
+                    src={Image_App_Store}
                     alt="App Store"
                     h={35}
                     w={100}
@@ -137,7 +123,7 @@ export default function Footer() {
                     radius={0}
                   />
                   <Image
-                    src={Google_Play}
+                    src={Image_Google_Play}
                     alt="Google Play"
                     h={35}
                     w={100}
